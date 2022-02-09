@@ -15,7 +15,7 @@ export default function Navbar() {
     {name: 'Users', path: '/users'},
     {name: 'Posts', path: '/posts'},
     {name: 'News', path: '/news'},
-    {name: 'Protected', path: '/protected'},
+    {name: 'Protected', path: '/protected', protected: true},
     // {name: 'Log In', path: '/login'},
     // {name: 'Register', path: '/register'},
   ]
@@ -32,7 +32,8 @@ export default function Navbar() {
           {pages.map((page) => {
             return ( 
               <Link href={page.path} key={page.name}>
-                <a className="pr-3">{(page.name).toUpperCase()}</a>
+                {/*  hiding protected pages */}
+                {page.protected && status !== 'authenticated' ? '' : <a className="pr-3">{(page.name).toUpperCase()}</a>}
               </Link>
             )
           })}
