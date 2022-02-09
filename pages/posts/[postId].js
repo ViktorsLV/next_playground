@@ -47,7 +47,7 @@ export async function getStaticProps(context) { // only for pre-rendering - not 
   const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`);
   const data = await response.json();
 
-  if(!data.id) {
+  if(!data.id) { 
     return {
       notFound: true // will return Not Found page if the URL doesn't exist
     } 
